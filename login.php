@@ -2,6 +2,7 @@
  <html lang="en">
 <?php
 require('db_config.php');
+session_start();
 ?>
  <head>
      <meta charset="UTF-8">
@@ -43,7 +44,7 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
                                      </div>
 
                                      <div class="form-outline form-white mb-4">
-                                         <input type="password" id="typePasswordX" class="form-control form-control-lg" name="password" required/>
+                                         <input type="password" id="typePasswordX" class="form-control form-control-lg" name="password" placeholder="Enter your password" required/>
                                          <label class="form-label" for="typePasswordX">Password</label>
                                      </div>
 
