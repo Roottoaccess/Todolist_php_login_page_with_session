@@ -45,6 +45,40 @@ if($_POST){
         $location = "login.php";
         header("Location:$location");
     }
+    if($_POST['operation'] == 'Submit'){
+        $task_name = $_POST['task_name'];
+        $task_desk = $_POST['task_desk'];
+        $status = $_POST['status'];
+
+        $sql = "insert into student_todo(task_name,task_desk,status)values('$task_name','$task_desk','$status')";
+
+        if(mysqli_query($conn,$sql)){
+            $location = "todo.php";
+            header("Location:$location");
+        }
+    }
+    if($_POST['operation'] == 'Update'){
+        $id = $_POST['id'];
+        $task_name = $_POST['task_name'];
+        $task_desk = $_POST['task_desk'];
+        $status = $_POST['status'];
+
+        $sql = "update student_todo set task_name='$task_name',task_desk='$task_desk',status='$status' where id=$id";
+
+        if(mysqli_query($conn, $sql)){
+            $location = "todo.php";
+            header("Location:$location");
+        }
+    }
+    if($_POST['operation'] == 'Delete'){
+        $id = $_POST['id'];
+
+        $sql = "delete from student_todo where id = $id";
+        if(mysqli_query($conn, $sql)){
+            $location = "todo.php";
+            header("Location:$location");
+        }
+    }
 }
 
 
