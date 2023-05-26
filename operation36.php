@@ -19,6 +19,32 @@ if($_POST){
             header("Location:$location");
         }
     }
+    if($_POST['operation'] == "Login"){
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $sql = "select * from student where email='$email' and password='$password'";
+        $result = mysqli_query($conn,$sql);
+        if($row = mysqli_fetch_assoc($result)){
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['password'] = $row['password'];
+
+            $location = "todo.php";
+            header("Location:$location");
+        }
+        else{
+            $location = "login.php";
+            header("Location:$location");
+        }
+    }
+
+    if($_POST['operation'] == 'Logout'){
+        unset($_SESSION['email']);
+        unset($_SESSION['password']);
+        session_destroy();
+        $location = "login.php";
+        header("Location:$location");
+    }
 }
 
 

@@ -48,7 +48,7 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
                                          <label class="form-label" for="typePasswordX">Password</label>
                                      </div>
 
-                                     <button class="btn btn-outline-light btn-lg px-5" type="submit" name="login" value="Login">Login</button>
+                                     <button class="btn btn-outline-light btn-lg px-5" type="submit" name="operation" value="Login">Login</button>
 
                                  </div>
 
